@@ -1,115 +1,115 @@
----
-title: An analysis of the morphology of penguins from the Palmer Archipelago, Antarctica
-keywords: [penguin, morphology]
-genre: scientific article
----
-
-# Introduction
-
-Antarctic penguins are widely used as bioindicators because changes in their body condition, breeding success, and population dynamics can reflect broader shifts in marine food webs and climate processes in the Southern Ocean. Morphological measurements therefore offer more than a simple descriptive record: they provide a practical way to compare species, investigate ecological differentiation, and identify patterns that may be linked to foraging behavior, habitat use, and reproductive strategies. Because the Antarctic Peninsula is one of the most rapidly warming regions on Earth, understanding the baseline morphological characteristics of resident penguin species is increasingly important for detecting future climate-driven changes in body condition and population structure.
-
-Within the Palmer Archipelago, three closely related brush-tailed penguin species - Adélie (_Pygoscelis adeliae_), Gentoo (_P. papua_), and Chinstrap (_P. antarcticus_) - coexist across overlapping but distinct environmental settings. Although these species share a common regional context, they differ visibly in body size and bill proportions, suggesting adaptations to different ecological niches. Adélie penguins, the most ice-obligate of the three, tend to forage on Antarctic krill (_Euphausia superba_) in nearshore pack-ice zones, while Gentoo penguins exploit a broader diet that includes fish and benthic prey in ice-free coastal waters. Chinstrap penguins, meanwhile, favour open-water foraging around the outer continental shelf and are thought to depend heavily on krill availability in those areas. These dietary and habitat differences are expected to impose distinct selective pressures on bill morphology, as bill shape in seabirds is closely linked to prey capture efficiency and thermoregulation. Examining these differences can help clarify how morphology varies among species and which measurements are most useful for distinguishing them.
-
-The Palmer Penguins dataset, originally compiled from fieldwork conducted between 2007 and 2009 on three islands in the Palmer Archipelago - Torgersen, Biscoe, and Dream - provides a well-known and accessible basis for this type of comparative analysis. The dataset includes measurements of bill length, bill depth, flipper length, and body mass for 344 individual penguins across the three species, along with associated metadata on sex and island of origin. By focusing on bill dimensions in particular, we can evaluate whether species form distinct clusters in morphospace and assess how strongly these traits separate the three taxa. This study therefore uses observational measurements from the Palmer Archipelago to describe interspecific variation in penguin morphology and to illustrate how simple visual analysis can reveal clear biological structure in a multivariate dataset.
-
-# Methods
-
-```python exec
-import pandas as pd
-
-penguins = pd.read_csv("penguins.csv")
-```
-
-::: figure #adelie-photo
-
-![](images/adelie.jpg)
-
-Representative photograph of an Adélie penguin (_Pygoscelis adeliae_) shown for reference in the Methods section. Attribution: Stan Shebs, CC BY-SA 3.0, via Wikimedia Commons.
-
-:::
-
-# Results
-
-The multivariate structure of penguin morphology is summarized in @fig-morphospace-2d, which compares pairwise relationships among bill length, bill depth, and flipper length across the three species.
-
-::: figure #morphospace-2d
-
-```python exec
-import matplotlib.pyplot as plt
-
-morphometrics = (
-    penguins[
-        ["species", "bill_length_mm", "bill_depth_mm", "flipper_length_mm"]
-    ]
-    .dropna()
-)
-
-species_styles = {
-    "Adelie": {
-        "color": "#1f77b4",
-        "marker": "o",
-    },
-    "Chinstrap": {
-        "color": "#d62728",
-        "marker": "D",
-    },
-    "Gentoo": {
-        "color": "#2ca02c",
-        "marker": "s",
-    },
-}
-
-pairs = [
-    ("bill_length_mm", "bill_depth_mm", "Bill length (mm)", "Bill depth (mm)"),
-    ("bill_length_mm", "flipper_length_mm", "Bill length (mm)", "Flipper length (mm)"),
-    ("bill_depth_mm", "flipper_length_mm", "Bill depth (mm)", "Flipper length (mm)"),
-]
-
-fig, axes = plt.subplots(1, 3, figsize=(12, 4.6))
-fig.subplots_adjust(top=1.2, wspace=0.3)
-
-for ax, (x, y, xlabel, ylabel) in zip(axes, pairs):
-    for species, style in species_styles.items():
-        subset = morphometrics[morphometrics["species"] == species]
-        ax.scatter(
-            subset[x],
-            subset[y],
-            s=36,
-            c=style["color"],
-            marker=style["marker"],
-            alpha=0.8,
-            edgecolors="white",
-            linewidths=0.4,
-            label=species,
-        )
-
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
-    ax.grid(True, alpha=0.2)
-
-handles, labels = axes[0].get_legend_handles_labels()
-fig.legend(
-    handles,
-    labels,
-    title="Species",
-    loc="upper center",
-    ncol=3,
-    frameon=False
-)
-
-fig
-```
-
-Pairwise two-dimensional scatter plots of penguin bill length, bill depth, and flipper length, with point color and marker shape used to distinguish species. Only individuals with complete measurements for these three variables are shown.
-
-:::
-
-As shown in [Figure 2](#fig-morphospace-2d), Gentoo penguins occupy a region of morphospace associated with longer flippers and larger overall body dimensions, separating them clearly from the other two species.
-
-Figure [2](#fig-morphospace-2d) also shows that Adélie and Chinstrap penguins overlap more closely in some dimensions, but remain distinguishable through contrasting bill proportions, especially along the bill length and bill depth axes.
-
-
-
-# References
-
-Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081. https://doi.org/10.1371/journal.pone.0090081
+---​
+title: An analysis of the morphology of penguins from the Palmer Archipelago, Antarctica​
+keywords: [penguin, morphology]​
+genre: scientific article​
+---​
+​
+# Introduction​
+​
+Antarctic penguins are widely used as bioindicators because changes in their body condition, breeding success, and population dynamics can reflect broader shifts in marine food webs and climate processes in the Southern Ocean. Morphological measurements therefore offer more than a simple descriptive record: they provide a practical way to compare species, investigate ecological differentiation, and identify patterns that may be linked to foraging behavior, habitat use, and reproductive strategies. Because the Antarctic Peninsula is one of the most rapidly warming regions on Earth, understanding the baseline morphological characteristics of resident penguin species is increasingly important for detecting future climate-driven changes in body condition and population structure.​
+​
+Within the Palmer Archipelago, three closely related brush-tailed penguin species - Adélie (_Pygoscelis adeliae_), Gentoo (_P. papua_), and Chinstrap (_P. antarcticus_) - coexist across overlapping but distinct environmental settings. Although these species share a common regional context, they differ visibly in body size and bill proportions, suggesting adaptations to different ecological niches. Adélie penguins, the most ice-obligate of the three, tend to forage on Antarctic krill (_Euphausia superba_) in nearshore pack-ice zones, while Gentoo penguins exploit a broader diet that includes fish and benthic prey in ice-free coastal waters. Chinstrap penguins, meanwhile, favour open-water foraging around the outer continental shelf and are thought to depend heavily on krill availability in those areas. These dietary and habitat differences are expected to impose distinct selective pressures on bill morphology, as bill shape in seabirds is closely linked to prey capture efficiency and thermoregulation. Examining these differences can help clarify how morphology varies among species and which measurements are most useful for distinguishing them.​
+​
+The Palmer Penguins dataset, originally compiled from fieldwork conducted between 2007 and 2009 on three islands in the Palmer Archipelago - Torgersen, Biscoe, and Dream - provides a well-known and accessible basis for this type of comparative analysis. The dataset includes measurements of bill length, bill depth, flipper length, and body mass for 344 individual penguins across the three species, along with associated metadata on sex and island of origin. By focusing on bill dimensions in particular, we can evaluate whether species form distinct clusters in morphospace and assess how strongly these traits separate the three taxa. This study therefore uses observational measurements from the Palmer Archipelago to describe interspecific variation in penguin morphology and to illustrate how simple visual analysis can reveal clear biological structure in a multivariate dataset.​
+​
+# Methods​
+​
+```python exec​
+import pandas as pd​
+​
+penguins = pd.read_csv("penguins.csv")​
+```​
+​
+::: figure #adelie-photo​
+​
+![](images/adelie.jpg)​
+​
+Representative photograph of an Adélie penguin (_Pygoscelis adeliae_) shown for reference in the Methods section. Attribution: Stan Shebs, CC BY-SA 3.0, via Wikimedia Commons.​
+​
+:::​
+​
+# Results​
+​
+The multivariate structure of penguin morphology is summarized in @fig-morphospace-2d, which compares pairwise relationships among bill length, bill depth, and flipper length across the three species.​
+​
+::: figure #morphospace-2d​
+​
+```python exec​
+import matplotlib.pyplot as plt​
+​
+morphometrics = (​
+    penguins[​
+        ["species", "bill_length_mm", "bill_depth_mm", "flipper_length_mm"]​
+    ]​
+    .dropna()​
+)​
+​
+species_styles = {​
+    "Adelie": {​
+        "color": "#1f77b4",​
+        "marker": "o",​
+    },​
+    "Chinstrap": {​
+        "color": "#d62728",​
+        "marker": "D",​
+    },​
+    "Gentoo": {​
+        "color": "#2ca02c",​
+        "marker": "s",​
+    },​
+}​
+​
+pairs = [​
+    ("bill_length_mm", "bill_depth_mm", "Bill length (mm)", "Bill depth (mm)"),​
+    ("bill_length_mm", "flipper_length_mm", "Bill length (mm)", "Flipper length (mm)"),​
+    ("bill_depth_mm", "flipper_length_mm", "Bill depth (mm)", "Flipper length (mm)"),​
+]​
+​
+fig, axes = plt.subplots(1, 3, figsize=(12, 4.6))​
+fig.subplots_adjust(top=1.2, wspace=0.3)​
+​
+for ax, (x, y, xlabel, ylabel) in zip(axes, pairs):​
+    for species, style in species_styles.items():​
+        subset = morphometrics[morphometrics["species"] == species]​
+        ax.scatter(​
+            subset[x],​
+            subset[y],​
+            s=36,​
+            c=style["color"],​
+            marker=style["marker"],​
+            alpha=0.8,​
+            edgecolors="white",​
+            linewidths=0.4,​
+            label=species,​
+        )​
+​
+    ax.set_xlabel(xlabel)​
+    ax.set_ylabel(ylabel)​
+    ax.grid(True, alpha=0.2)​
+​
+handles, labels = axes[0].get_legend_handles_labels()​
+fig.legend(​
+    handles,​
+    labels,​
+    title="Species",​
+    loc="upper center",​
+    ncol=3,​
+    frameon=False​
+)​
+​
+fig​
+```​
+​
+Pairwise two-dimensional scatter plots of penguin bill length, bill depth, and flipper length, with point color and marker shape used to distinguish species. Only individuals with complete measurements for these three variables are shown.​
+​
+:::​
+​
+As shown in [Figure 2](#fig-morphospace-2d), Gentoo penguins occupy a region of morphospace associated with longer flippers and larger overall body dimensions, separating them clearly from the other two species.​
+​
+Figure [2](#fig-morphospace-2d) also shows that Adélie and Chinstrap penguins overlap more closely in some dimensions, but remain distinguishable through contrasting bill proportions, especially along the bill length and bill depth axes.​
+​
+​
+​
+# References​
+​
+Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081. https://doi.org/10.1371/journal.pone.0090081​
