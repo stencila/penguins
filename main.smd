@@ -1,12 +1,16 @@
 ---
-title: An analysis of the morphology of Adélie, Gentoo, and Chinstrap penguins from the Palmer Archipelago, Antarctica
+title: An analysis of the morphology of penguins from the Palmer Archipelago, Antarctica
 keywords: [penguin, morphology]
 genre: scientific article
 ---
 
 # Introduction
 
-Antarctic penguins serve as critical bioindicators of ecosystem health and climate change impacts in the Southern Ocean, making their morphological characteristics of particular interest to researchers. The three brush-tailed penguin species of the Palmer Archipelago - Adélie (Pygoscelis adeliae), Gentoo (P. papua), and Chinstrap (P. antarcticus) - exhibit distinct physical traits that have evolved through adaptation to their specific ecological niches, providing valuable insights into their evolutionary history and ecological roles.
+Antarctic penguins are widely used as bioindicators because changes in their body condition, breeding success, and population dynamics can reflect broader shifts in marine food webs and climate processes in the Southern Ocean. Morphological measurements therefore offer more than a simple descriptive record: they provide a practical way to compare species, investigate ecological differentiation, and identify patterns that may be linked to foraging behavior, habitat use, and reproductive strategies. Because the Antarctic Peninsula is one of the most rapidly warming regions on Earth, understanding the baseline morphological characteristics of resident penguin species is increasingly important for detecting future climate-driven changes in body condition and population structure.
+
+Within the Palmer Archipelago, three closely related brush-tailed penguin species - Adélie (_Pygoscelis adeliae_), Gentoo (_P. papua_), and Chinstrap (_P. antarcticus_) - coexist across overlapping but distinct environmental settings. Although these species share a common regional context, they differ visibly in body size and bill proportions, suggesting adaptations to different ecological niches. Adélie penguins, the most ice-obligate of the three, tend to forage on Antarctic krill (_Euphausia superba_) in nearshore pack-ice zones, while Gentoo penguins exploit a broader diet that includes fish and benthic prey in ice-free coastal waters. Chinstrap penguins, meanwhile, favour open-water foraging around the outer continental shelf and are thought to depend heavily on krill availability in those areas. These dietary and habitat differences are expected to impose distinct selective pressures on bill morphology, as bill shape in seabirds is closely linked to prey capture efficiency and thermoregulation. Examining these differences can help clarify how morphology varies among species and which measurements are most useful for distinguishing them.
+
+The Palmer Penguins dataset, originally compiled from fieldwork conducted between 2007 and 2009 on three islands in the Palmer Archipelago - Torgersen, Biscoe, and Dream - provides a well-known and accessible basis for this type of comparative analysis. The dataset includes measurements of bill length, bill depth, flipper length, and body mass for 344 individual penguins across the three species, along with associated metadata on sex and island of origin. By focusing on bill dimensions in particular, we can evaluate whether species form distinct clusters in morphospace and assess how strongly these traits separate the three taxa. This study therefore uses observational measurements from the Palmer Archipelago to describe interspecific variation in penguin morphology and to illustrate how simple visual analysis can reveal clear biological structure in a multivariate dataset.
 
 # Methods
 
@@ -15,6 +19,16 @@ import pandas as pd
 
 penguins = pd.read_csv("penguins.csv")
 ```
+
+::: figure #adelie-photo
+
+![](images/adelie.jpg)
+
+Representative photograph of an Adélie penguin (_Pygoscelis adeliae_) shown for reference in the Methods section. Attribution: Stan Shebs, CC BY-SA 3.0, via Wikimedia Commons.
+
+:::
+
+# Results
 
 # References
 
