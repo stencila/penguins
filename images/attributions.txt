@@ -1,0 +1,6 @@
+adelie.jpg: Stan Shebs, CC BY-SA 3.0, via Wikimedia Commons
+
+chinstrap.jpg: Andrew Shiva, CC BY-SA 2.5, Wikipedia
+
+gentoo.jpg: Lord Biro, CC BY-SA 2.0, via Wikimedia
+
