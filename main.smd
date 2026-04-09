@@ -30,6 +30,8 @@ Representative photograph of an Adélie penguin (_Pygoscelis adeliae_) shown for
 
 # Results
 
+The multivariate structure of penguin morphology is summarized in @fig-morphospace-2d, which compares pairwise relationships among bill length, bill depth, and flipper length across the three species.
+
 ::: figure #morphospace-2d
 
 ```python exec
@@ -101,6 +103,10 @@ fig
 Pairwise two-dimensional scatter plots of penguin bill length, bill depth, and flipper length, with point color and marker shape used to distinguish species. Only individuals with complete measurements for these three variables are shown.
 
 :::
+
+As shown in [Figure 2](#fig-morphospace-2d), Gentoo penguins occupy a region of morphospace associated with longer flippers and larger overall body dimensions, separating them clearly from the other two species.
+
+Figure [2](#fig-morphospace-2d) also shows that Adélie and Chinstrap penguins overlap more closely in some dimensions, but remain distinguishable through contrasting bill proportions, especially along the bill length and bill depth axes.
 
 
 
